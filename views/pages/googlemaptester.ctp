@@ -8,4 +8,3 @@
         echo $this->GoogleMap->addMarkers($points);
         echo $this->GoogleMap->moveMarkerOnClick('StructureLongitudine','StructureLatitudine');
 ?>
-

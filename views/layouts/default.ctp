@@ -11,6 +11,7 @@
 
 		echo $this->Html->css(
 			array(
+				'cake.generic',
 				'stickyfooter',
 				'/bootstrap/css/bootstrap.min',
 				'style'

@@ -19,6 +19,8 @@
 		echo $this->Html->script(
 			array(
 				'jquery-1.8.2.min',
+				'https://maps.googleapis.com/maps/api/js?key=AIzaSyAoUlJoPDNIve-vBdO3R8w5q2ML4HdKdAw&sensor=false',
+				'googlemap',
 				'init'
 			)
 		);

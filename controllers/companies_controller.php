@@ -2,7 +2,8 @@
 class CompaniesController extends AppController {
 
 	var $name = 'Companies';
-
+	var $scaffold;
+	/*
 	function index() {
 		$this->Company->recursive = 0;
 		$this->set('companies', $this->paginate());
@@ -125,4 +126,5 @@ class CompaniesController extends AppController {
 		$this->Session->setFlash(__('Company was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-}
+*/
+	}

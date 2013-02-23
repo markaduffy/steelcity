@@ -2,8 +2,8 @@
 class ProductsController extends AppController {
 
 	var $name = 'Products';
-
-	function index() {
+	var $scaffold;
+/*	function index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
@@ -121,4 +121,5 @@ class ProductsController extends AppController {
 		$this->Session->setFlash(__('Product was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	*/
 }

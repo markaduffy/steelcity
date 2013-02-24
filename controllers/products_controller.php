@@ -143,7 +143,7 @@ class ProductsController extends AppController {
 				$addresses = $this->Product->find('all', 
 					array(
 						'conditions' => array(
-							'Product.title LIKE' => '%' . $this->data['Product']['search_product'] . '%'
+							'Product.title LIKE' => '%' . $this->data['search_product'] . '%'
 						),
 						'joins' => array(
 							array(

@@ -34,14 +34,16 @@
 
     <script>
 
+      /*
         var vars = getUrlVars();
+        var destinationArray = new Array();
 
         $(document).ready(function(){
 
             $.ajax({
                 type: 'post',
                 url: '/products/addresses/',
-                data: {'data[Product][search_product]' : vars.search_product, 'data[Product][search_zip' : vars.search_zip},
+                data: {'search_product' : vars.search_product, 'search_zip' : vars.search_zip},
                 dataType: 'json',
                 complete: function(xhr){
 
@@ -55,40 +57,46 @@
                 }
           });
 
-        });
+        });*/
+
 
       var map;
       var geocoder;
       var bounds = new google.maps.LatLngBounds();
       var markersArray = [];
-	  var directionsDisplay;
-	  var directionsService = new google.maps.DirectionsService();
-	  
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
+    
       var minDistance = 100000;
-	  var closestCenter;
-	  
+    var closestCenter;
+    
       var origin;
-	  var destinationArray = new Array();
-	  var hours;
+    var destinationArray = new Array();
+    var hours;
 
       var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
       var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
 
       function initialize() {
         directionsDisplay = new google.maps.DirectionsRenderer();
-		var opts = {
+    var opts = {
           center: new google.maps.LatLng(40.4571847, -79.9168432),
           zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById('map'), opts);
-		directionsDisplay.setMap(map);
-		directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById("directionsPanel"));
         geocoder = new google.maps.Geocoder();
-		
-		//initialize values from AJAX
-		origin = vars.search_zip;
-		//hours = "9am-2pm";
+    
+    //initialize values from AJAX
+    origin = "15227";
+    destinationArray[0] = "301-309 Mathews Avenue, Pittsburgh, PA 15210";
+    destinationArray[1] = "600 Highway 380, Pittsburgh, PA 15208";
+    destinationArray[2] = "36 Second Avenue, Pittsburgh, PA 15207";
+    destinationArray[3] = "1324 Hassler Street, Pittsburgh, PA 15220";
+    destinationArray[4] = "65 31st Street Bridge, Pittsburgh, PA 15201";
+    //hours = "9am-2pm";
       }
 
       function calculateDistances() {
@@ -118,11 +126,11 @@
             var results = response.rows[i].elements;
             //addMarker(origins[i], false);
             for (var j = 0; j < results.length; j++) {
-				if(results[j].distance.value/1000 < minDistance){
-					minDistance = results[j].distance.value/1000;
-					closestCenter = destinations[j];
-				}
-			
+        if(results[j].distance.value/1000 < minDistance){
+          minDistance = results[j].distance.value/1000;
+          closestCenter = destinations[j];
+        }
+      
               //addMarker(destinations[j], true);
               //outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
               //    + ': ' + results[j].distance.text + ' in '
@@ -133,10 +141,10 @@
           }
         }
         outputDiv.innerHTML += 'The closest center that can recycle those goods is: ' + closestCenter + '<br>';
-		if(hours != null){
-			outputDiv.innerHTML += 'and it is open from ' + hours + '<br>';
-		}
-		calcRoute();
+    if(hours != null){
+      outputDiv.innerHTML += 'and it is open from ' + hours + '<br>';
+    }
+    calcRoute();
       }
 
       function addMarker(location, isDestination) {
@@ -162,22 +170,22 @@
           }
         });
       }
-	  
-		function calcRoute() {
-			var start = origin;
-			var end = closestCenter;
-			var request = {
-			origin:start,
-			destination:end,
-			travelMode: google.maps.TravelMode.DRIVING
-			};
-			directionsService.route(request, function(response, status) {
-				if (status == google.maps.DirectionsStatus.OK) {
-				  directionsDisplay.setDirections(response);
-				}
-			});
-		}
-		
+    
+    function calcRoute() {
+      var start = origin;
+      var end = closestCenter;
+      var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+      };
+      directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        }
+      });
+    }
+    
       function deleteOverlays() {
         if (markersArray) {
           for (i in markersArray) {
@@ -213,7 +221,7 @@
 
     </script>
   </head>
-  <body>
+  <body onload="initialize();calculateDistances();">
 
     <input type="hidden" value="" name="search_product" />
     <input type="hidden" value="" name="search_zip" />

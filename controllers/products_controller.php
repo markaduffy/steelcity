@@ -122,4 +122,16 @@ class ProductsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	*/
+
+	function search(){
+
+		if (!empty($this->data)){
+
+			$products = $this->Product->find('all', array('conditions' => array('Product.title LIKE' => '%' . $this->data['Product']['search_product'] . '%')));
+
+		}
+
+		$this->set(compact('products'));
+
+	}
 }

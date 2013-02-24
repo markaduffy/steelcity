@@ -2,7 +2,7 @@
 /* style.css */
 
       html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
+      body { height: 100%; margin: 0; padding: 0; }
       #map_canvas { height: 100% }
 	  
 dt {
@@ -18,4 +18,29 @@ dd {
 	height:155px;
 	text-indent:-9999px;
 	background:url('/img/logo.png');
+}
+
+
+.search-box {
+
+}
+
+.search-box label {
+	font-size:28px;
+}
+
+.company-box {
+	margin:0 0 0 60px;
+	padding:10px;
+	background:#cccccc;
+}
+
+.product-box {
+	background:#eeeecc;
+	padding:10px;
+	margin:0 0 30px 20px;
+}
+
+.footer {
+	background-color:#ffff44;;
 }

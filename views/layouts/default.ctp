@@ -21,6 +21,7 @@
 		echo $this->Html->script(
 			array(
 				'jquery-1.8.2.min',
+				'/bootstrap/js/bootstrap.min',
 				'jquery.autocomplete',
 				'init'
 			)
@@ -39,15 +40,19 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="colspan12">
+				<div class="span12">
 					<h1 class="logo">Redupp Recycle</h1>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="colspan12">
-					<?php echo $form->create('Product', array('url' => '/products/index')); ?>
-					<?php echo $form->input('search') ?>
+				<div class="span6 search-box">
+					<?php echo $form->create('Product', array('url' => '/products/search')); ?>
+					<?php echo $form->input('search_product', array('label' => 'I have a...')) ?>
+				</div>
+
+				<div class="span6 search-box">
+					<?php echo $form->input('search_zip', array('label' => 'I live...')) ?>
 					<?php echo $form->end('Search')?>
 				</div>
 			</div>
@@ -62,7 +67,7 @@
 
 </div>
 
-<div id="footer">
+<div id="footer" class="footer">
 stickyfooter
 </div>
 

@@ -38,6 +38,8 @@ class PagesController extends AppController {
  */
 	var $name = 'Pages';
 
+	var $uses = array('Product');
+
 /**
  * Default helper
  *
@@ -45,14 +47,6 @@ class PagesController extends AppController {
  * @access public
  */
 	var $helpers = array('Html');
-
-/**
- * This controller does not use a model
- *
- * @var array
- * @access public
- */
-	var $uses = array();
 
 /**
  * Displays a view
@@ -84,6 +78,19 @@ class PagesController extends AppController {
 	
 	function googlemaptester(){
 	
+	}
+
+	function autoComplete() {
+		
+	    //Partial strings will come from the autocomplete field as
+	    //$this->data['Post']['subject']
+	    $this->set('products', $this->Product->find('all', array(
+	                'conditions' => array(
+	                    'Product.title LIKE' => $this->data['Product']['title'].'%'
+	                ),
+	                'fields' => array('title')
+	    )));
+	    $this->layout = 'ajax';
 	}
 }
 

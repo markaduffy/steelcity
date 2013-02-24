@@ -12,3 +12,10 @@ dt {
 dd {
 
 }
+
+.logo {
+	width:163px;
+	height:155px;
+	text-indent:-9999px;
+	background:url('/img/logo.png');
+}

@@ -14,13 +14,14 @@
 				'cake.generic',
 				'stickyfooter',
 				'/bootstrap/css/bootstrap.min',
+				'jquery.autocomplete',
 				'style'
 			)
 		);
 		echo $this->Html->script(
 			array(
 				'jquery-1.8.2.min',
-				'googlemap',
+				'jquery.autocomplete',
 				'init'
 			)
 		);
@@ -30,8 +31,6 @@
 
 </head>
 <body>
-
-<?php debug('this'); ?>
 
 <div id="wrap">
 
@@ -45,7 +44,13 @@
 				</div>
 			</div>
 
-
+			<div class="row">
+				<div class="colspan12">
+					<?php echo $form->create('Product', array('url' => '/products/index')); ?>
+					<?php echo $form->input('search') ?>
+					<?php echo $form->end('Search')?>
+				</div>
+			</div>
 
 			<?php echo $this->Session->flash(); ?>
 
@@ -62,8 +67,6 @@ stickyfooter
 </div>
 
 <?php echo $this->Js->writeBuffer(); ?>
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoUlJoPDNIve-vBdO3R8w5q2ML4HdKdAw&sensor=false"></script>
 
 </body>
 </html>

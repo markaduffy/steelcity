@@ -32,7 +32,7 @@
  */
 class AppController extends Controller {
 
-	var $helpers = array('Html','Form','Session','Js','Javascript','GoogleMap');
+	var $helpers = array('Html','Form','Session','Js','Javascript','GoogleMap','Ajax');
 	var $components = array(
 		'Session',
 		'RequestHandler',

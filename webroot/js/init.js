@@ -1,6 +1,12 @@
 /* init.js */
 $(document).ready(function(){
 	
-	//initialize();
+	$('#search-product').focus(function(){
+		$(this).val("");
+	});
+
+	$('#search-zip').focus(function(){
+		$(this).val("");
+	})
 
 });

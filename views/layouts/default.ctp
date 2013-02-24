@@ -46,14 +46,18 @@
 			</div>
 
 			<div class="row">
-				<div class="span6 search-box">
-					<?php echo $form->create('Product', array('url' => '/products/search')); ?>
-					<?php echo $form->input('search_product', array('label' => 'I have a...')) ?>
-				</div>
+
+
 
 				<div class="span6 search-box">
-					<?php echo $form->input('search_zip', array('label' => 'I live...')) ?>
-					<?php echo $form->end('Search')?>
+					<?php echo $form->create('Product', array('url' => '/products/search', 'class' => 'search-form')); ?>
+					<?php echo $form->input('search_product', array('label' => 'I have a...', 'class' => 'search-box-input', 'value' => 'Material/Item', 'id' => 'search-product')) ?>
+				</div>
+
+				<div class="span6 search-box-live">
+					<?php echo $form->input('search_zip', array('label' => 'I live...', 'class' => 'search-box-live', 'value' => 'Zip Code', 'id' => 'search-zip')) ?>
+					<a href="javascript:theform.submit();" class="btn btn-large">Search</a>
+					<?php echo $form->end(); ?>
 				</div>
 			</div>
 
@@ -68,7 +72,7 @@
 </div>
 
 <div id="footer" class="footer">
-stickyfooter
+
 </div>
 
 <?php echo $this->Js->writeBuffer(); ?>

@@ -51,7 +51,7 @@
 
 
 				<div class="span6 search-box">
-					<?php echo $form->create('Product', array('url' => '/products/search', 'class' => 'search-form')); ?>
+					<?php echo $form->create('Product', array('url' => '/products/search', 'class' => 'search-form', 'name' => 'theform')); ?>
 					<?php echo $form->input('search_product', array('label' => 'I have a...', 'class' => 'search-box-input', 'value' => 'Material/Item', 'id' => 'search-product')) ?>
 				</div>
 

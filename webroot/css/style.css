@@ -30,11 +30,11 @@ dd {
 
 
 .search-box {
-	width:380px;
+	width:340px;
 }
 
 .search-box-live {
-	width:380px;
+	width:440px;
 	margin:4px 0 0 0;
 }
 
@@ -66,6 +66,11 @@ dd {
 	float:left;
 }
 
+.input {
+	float:left;
+	width:320px;
+}
+
 .search-box-input {
 	width:250px;
 	height:100px;
@@ -88,6 +93,7 @@ dd {
 
 .search-button {
 	float:left;
+	margin:40px 0 0 0;
 }
 
 .gobias-logo {

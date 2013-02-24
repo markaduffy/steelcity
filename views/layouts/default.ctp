@@ -6,6 +6,7 @@
 		<?php __('Steel City Recycling App'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -56,7 +57,7 @@
 
 				<div class="span6 search-box-live">
 					<?php echo $form->input('search_zip', array('label' => 'I live...', 'class' => 'search-box-live', 'value' => 'Zip Code', 'id' => 'search-zip')) ?>
-					<a href="javascript:theform.submit();" class="btn btn-large">Search</a>
+					<a href="javascript:theform.submit();" class="btn btn-large search-button">Search</a>
 					<?php echo $form->end(); ?>
 				</div>
 			</div>
@@ -72,6 +73,9 @@
 </div>
 
 <div id="footer" class="footer">
+
+	<p>&copy; 2013 GOBIAS INDUSTRIES</p>
+	<span class="gobias-logo"></span>
 
 </div>
 

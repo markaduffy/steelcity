@@ -3,6 +3,7 @@ class ProductsController extends AppController {
 
 	var $name = 'Products';
 	var $scaffold;
+
 /*	function index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
@@ -132,6 +133,47 @@ class ProductsController extends AppController {
 		}
 
 		$this->set(compact('products'));
+
+	}
+
+	function addresses(){
+
+		if ($this->RequestHandler->isAjax()){
+
+				$addresses = $this->Product->find('all', 
+					array(
+						'conditions' => array(
+							'Product.title LIKE' => '%' . $this->data['Product']['search_product'] . '%'
+						),
+						'joins' => array(
+							array(
+								'table' => 'products_companies',
+								'alias' => 'ProductsCompanies',
+								'conditions' => array(
+									'Product.id = ProductsCompanies.product_id'
+								)
+							),
+							array(
+								'table' => 'companies',
+								'alias' => 'Company',
+								'conditions' => array(
+									'ProductsCompanies.company_id = Company.id'
+								)
+							)
+						),
+						'fields' => array(
+							'Company.address'
+						)
+					)
+				);
+
+				$json = json_encode($addresses);
+
+				$this->set(compact('json'));
+
+				$this->render('json','ajax');
+
+		}
 
 	}
 }

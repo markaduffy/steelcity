@@ -29,6 +29,7 @@
 		);
 
 		echo $scripts_for_layout;
+		
 	?>
 
 </head>

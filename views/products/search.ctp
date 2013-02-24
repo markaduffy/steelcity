@@ -38,6 +38,10 @@ Could not find anyone that recycles that item.
 	</div>
 
 	<div class="span5">
+
+		<iframe src="/webroot/map.html?search_product=<?php echo $this->data['Product']['search_product']; ?>&search_zip=<?php echo $this->data['Product']['search_zip'] ?>" width="400px" height="600px"></iframe>
+
+	</div>
 </div>
 
 <?php } ?>
